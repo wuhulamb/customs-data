@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Customs data scraping toolkit for China Customs Statistics website (`stats.customs.gov.cn`). The system queries and downloads import/export trade data, handles partial failures through automated retry workflows.
+Customs data scraping toolkit for China Customs Statistics website (`http://stats.customs.gov.cn/`). The system queries and downloads import/export trade data, handles partial failures through automated retry workflows.
 
 ## Architecture
 

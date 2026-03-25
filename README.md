@@ -1,6 +1,6 @@
 # 海关统计数据下载工具
 
-用于从中国海关 statistics.stats.gov.cn 网站批量下载进出口贸易数据。
+用于从中国海关 `http://stats.customs.gov.cn/` 网站批量下载进出口贸易数据。
 
 ## 功能特点
 
