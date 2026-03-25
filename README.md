@@ -31,7 +31,7 @@
 | `merge_csv.py` | 合并拆分的 CSV 文件，按年份生成合并文件 |
 | `auto_retry.py` | 自动化重爬流程：验证 → 生成重试配置 |
 | `cleanup_retry_files.py` | 清理需要重爬的旧文件 |
-| `saveTable.py` | 格式化贸易港口编码文件 |
+| `saveTable.py` | 格式化贸易港口编码文件（将网站上复制粘贴的 TRADE_PARTNERS 等编码转为CSV文件，方便填入js代码） |
 
 ## 使用流程
 

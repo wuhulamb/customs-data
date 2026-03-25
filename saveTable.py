@@ -25,6 +25,7 @@ def format_trade_ports(input_file, output_file=None):
     if output_file:
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write('\n'.join(results))
+            f.write('\n')    # 添加换行符
         print(f"已保存至 {output_file}")
     else:
         for line in results:
