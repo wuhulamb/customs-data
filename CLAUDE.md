@@ -91,6 +91,6 @@ python3 auto_retry.py --clean --move
 
 - Responses are GBK-encoded CSV; decode to UTF-8 after stripping newlines within quoted fields
 - Binary splitting partitions by trade partners first, then trade methods
--中断 downloads via `window.stopDownload = true` in browser console
+- Interrupt downloads via `window.stopDownload = true` in browser console
 - Data stored in `downloads/` directory with pattern `{type}-{year}-{port}[_p1-N][_m1-N].csv`
 - Merged data stored in `merged_data/` with pattern `{type}-{year}.csv` (13 standard columns)

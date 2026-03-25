@@ -18,6 +18,7 @@
 | `search_and_save.js` | 遍历查询所有任务的数据量，保存为 JSON |
 | `download.js` | 批量下载所有 CSV 数据，支持自动二分拆分 |
 | `retry_download.js` | 重爬之前失败的任务，带重试机制 |
+| `retry_download_debug.js` | 调试版重试脚本，带详细日志和数据验证 |
 | `search.js` | 单个任务数据量查询示例 |
 | `selectTableStates.js` | selectTableState 参数测试脚本 |
 
@@ -50,6 +51,7 @@
 
 ```javascript
 // 运行 download.js
+// 在浏览器中设置保存数据的位置
 ```
 
 如需中断，执行 `window.stopDownload = true`。
@@ -91,7 +93,7 @@ python3 merge_csv.py
 
 ## 配置文件说明
 
-### download.js / retry_download.js
+### download.js
 
 ```javascript
 const IE_TYPES = [1, 0];        // 1:进口，0:出口
@@ -100,14 +102,9 @@ const TRADE_PORTS = ['11','12',...];  // 贸易口岸编码
 const TRADE_PARTNERS = [...];   // 贸易伙伴编码
 const TRADE_METHODS = [...];    // 贸易方式编码
 const MAX_ROWS = 10000;         // 单文件最大行数
-```
-
-### SELECT_TABLE_STATE
-
-不同年份需使用不同的表状态值：
-
-```javascript
-{ 2021: 2, 2022: 2, 2023: 2, 2024: 2, 2025: 1 }
+const SELECT_TABLE_STATE = {    // 不同年份需使用不同的表状态值
+  2021: 2, 2022: 2, 2023: 2, 2024: 2, 2025: 1
+};
 ```
 
 ## 目录结构
