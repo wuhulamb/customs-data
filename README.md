@@ -43,6 +43,8 @@
 find . -type f -name "*.js" -exec sed -i "s/rmb/usd/g" {} \;
 ```
 
+修改 `merge_csv.py` 和 `check_csv.py` 中的 EXPECTED_HEADERS 为 [..., "美元"]
+
 ### 1. 查询数据量
 
 在海关统计网页浏览器控制台运行：

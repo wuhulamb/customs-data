@@ -111,6 +111,7 @@ def merge_csv_files():
                     for row in reader:
                         if len(row) > max(header_indices):
                             extracted_row = [row[i] for i in header_indices]
+                            extracted_row[-1] = extracted_row[-1].replace(',', '')  # 移除货币列中的逗号
                             all_rows.append(extracted_row)
                             row_count += 1
 
