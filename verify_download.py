@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 验证下载数据完整性
-读取 customs_data_status_full.json，对比 03/ 目录下实际下载的 CSV 文件行数
+读取 customs_data_status_full.json，对比 downloads/ 目录下实际下载的 CSV 文件行数
 """
 
 import json

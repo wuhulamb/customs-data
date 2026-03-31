@@ -109,7 +109,7 @@ def delete_old_files(mismatch: list):
 
 
 def move_new_files(mismatch: list = None):
-    """将当前目录的 CSV 移动到 03/"""
+    """将当前目录的 CSV 移动到 downloads/"""
     if not os.path.exists(JSON_FILE):
         print(f"❌ 未找到 {JSON_FILE}")
         return 0
@@ -137,8 +137,8 @@ def move_new_files(mismatch: list = None):
 
 
 def check_invalid_csv_files():
-    """使用 check_csv.py 检查 03/ 目录中的无效 CSV 文件"""
-    print("\n检查 03/ 目录中的 CSV 文件合法性:")
+    """使用 check_csv.py 检查 downloads/ 目录中的无效 CSV 文件"""
+    print("\n检查 downloads/ 目录中的 CSV 文件合法性:")
     print("-" * 60)
 
     folder = Path(DATA_DIR)
@@ -167,7 +167,7 @@ def check_invalid_csv_files():
 def main():
     parser = argparse.ArgumentParser(description='自动重爬取流程')
     parser.add_argument('--clean', action='store_true', help='删除问题数据的旧文件')
-    parser.add_argument('--move', action='store_true', help='将新下载的 CSV 移动到 03/')
+    parser.add_argument('--move', action='store_true', help='将新下载的 CSV 移动到 downloads/')
     parser.add_argument('--check-csv', action='store_true', help='检查 CSV 文件合法性')
     args = parser.parse_args()
 
