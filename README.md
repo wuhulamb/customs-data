@@ -45,7 +45,18 @@ find . -type f -name "*.js" -exec sed -i "s/rmb/usd/g" {} \;
 
 修改 `merge_csv.py` 和 `check_csv.py` 中的 EXPECTED_HEADERS 为 [..., "美元"]
 
-### 1. 查询数据量
+### 1. 确定selectTableState参数
+
+在海关统计网页浏览器控制台运行：
+
+```javascript
+// 根据需要修改 YEAR 变量
+// 运行 selectTableStates.js
+```
+
+更新 `search.js` `search_and_save.js` `download.js` `retry_download.js` `retry_download_debug.js` 中的 SELECT\_TABLE\_STATE
+
+### 2. 查询数据量
 
 在海关统计网页浏览器控制台运行：
 
@@ -56,7 +67,7 @@ find . -type f -name "*.js" -exec sed -i "s/rmb/usd/g" {} \;
 
 会下载 `customs_data_status_full.json`，包含所有任务的预期数据量。
 
-### 2. 下载数据
+### 3. 下载数据
 
 在同一页面控制台运行：
 
@@ -68,7 +79,7 @@ find . -type f -name "*.js" -exec sed -i "s/rmb/usd/g" {} \;
 
 如需中断，执行 `window.stopDownload = true`。
 
-### 3. 验证完整性
+### 4. 验证完整性
 
 本地运行：
 
@@ -78,7 +89,7 @@ python3 verify_download.py
 
 对比预期与实际下载的行数。
 
-### 4. 处理不完整数据
+### 5. 处理不完整数据
 
 ```bash
 # 生成重爬列表并更新 retry_download.js
@@ -93,7 +104,7 @@ python3 auto_retry.py --check-csv
 
 然后在浏览器中运行更新后的 `retry_download.js`。
 
-### 5. 合并 CSV 文件
+### 6. 合并 CSV 文件
 
 将拆分的 CSV 文件按年份合并：
 
