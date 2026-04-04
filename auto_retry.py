@@ -7,9 +7,10 @@
 4. 删除旧文件并移动新文件（可选）
 
 用法:
-    python3 auto_retry.py [--clean] [--move]
-    --clean   删除问题数据的旧文件
-    --move    将当前目录的 CSV 移动到 downloads/
+    python3 auto_retry.py [--clean] [--move] [--check-csv]
+    --clean     删除问题数据的旧文件
+    --move      将当前目录的 CSV 移动到 downloads/
+    --check-csv 检查 CSV 文件合法性
 """
 
 import os
@@ -94,7 +95,7 @@ def delete_old_files(mismatch: list):
     """删除不匹配任务的旧 CSV 文件"""
     deleted = 0
     for t in mismatch:
-        pattern = os.path.join(DATA_DIR, f"{t['name']}_*.csv")
+        pattern = os.path.join(DATA_DIR, f"{t['name']}*.csv")
         files = glob.glob(pattern)
         for fp in files:
             try:
@@ -117,10 +118,13 @@ def move_new_files(mismatch: list = None):
     with open(JSON_FILE, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
+    # 确保目标目录存在
+    os.makedirs(DATA_DIR, exist_ok=True)
+
     moved = 0
     for task in data.get('data', []):
         name = task['name']
-        pattern = f"{name}_*.csv"
+        pattern = f"{name}*.csv"
 
         files = glob.glob(pattern)
         for fp in files:

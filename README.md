@@ -69,7 +69,7 @@ find . -type f -name "*.js" -exec sed -i "s/rmb/usd/g" {} \;
 
 ### 3. 下载数据
 
-在同一页面控制台运行：
+在同一页面控制台运行下面的命令，如需中断，执行 `window.stopDownload = true`。
 
 ```javascript
 // 在浏览器中设置保存数据的位置
@@ -77,7 +77,11 @@ find . -type f -name "*.js" -exec sed -i "s/rmb/usd/g" {} \;
 // 运行 download.js
 ```
 
-如需中断，执行 `window.stopDownload = true`。
+下载完数据后，运行下面的命令创建 `downloads` 文件夹，并将数据移动到文件夹下
+
+```python
+python3 auto_retry.py --move
+```
 
 ### 4. 验证完整性
 
