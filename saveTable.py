@@ -1,5 +1,10 @@
+#!/usr/bin/env python3
 # 文件名：format_trade_ports.py
 # 功能：将 tradePort.txt 整理为 code,name 格式
+
+import argparse
+import sys
+
 
 def format_trade_ports(input_file, output_file=None):
     """
@@ -33,6 +38,31 @@ def format_trade_ports(input_file, output_file=None):
 
     return results
 
-# 使用示例
-# 假设文件在当前目录下
-format_trade_ports('tradeCode.txt', 'tradeCode.csv')
+def main():
+    parser = argparse.ArgumentParser(
+        description='将代码/名称文本文件整理为 CSV 格式（code,name）',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+示例:
+  %(prog)s tradeCode.txt
+  %(prog)s tradeCode.txt tradeCode.csv
+        """
+    )
+    parser.add_argument('input_file', help='输入的文本文件（代码和名称交替行）')
+    parser.add_argument('output_file', nargs='?', default=None,
+                        help='输出的 CSV 文件（可选，不指定则打印到控制台）')
+
+    args = parser.parse_args()
+
+    try:
+        format_trade_ports(args.input_file, args.output_file)
+    except FileNotFoundError:
+        print(f"错误：文件 '{args.input_file}' 不存在", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"错误：{e}", file=sys.stderr)
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    main()
