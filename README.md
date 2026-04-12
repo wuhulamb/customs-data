@@ -35,15 +35,15 @@
 
 ## 使用流程
 
-### 0. 设置货币类型（默认为人民币）
+### 0. 设置货币类型（默认为美元）
 
-替换所有js文件中的 rmb 为 usd:
+如需设为人民币，替换所有js文件中的 usd 为 rmb:
 
 ```bash
-find . -type f -name "*.js" -exec sed -i "s/rmb/usd/g" {} \;
+find . -type f -name "*.js" -exec sed -i "s/usd/rmb/g" {} \;
 ```
 
-修改 `merge_csv.py` 和 `check_csv.py` 中的 EXPECTED_HEADERS 为 [..., "美元"]
+修改 `merge_csv.py` 和 `check_csv.py` 中的 EXPECTED\_HEADERS 为 [..., "人民币"]
 
 ### 1. 确定selectTableState参数
 
@@ -61,6 +61,7 @@ find . -type f -name "*.js" -exec sed -i "s/rmb/usd/g" {} \;
 在海关统计网页浏览器控制台运行：
 
 ```javascript
+// 在浏览器中设置保存数据的位置
 // 根据需要修改 YEAR 变量
 // 运行 search_and_save.js
 ```
@@ -72,7 +73,6 @@ find . -type f -name "*.js" -exec sed -i "s/rmb/usd/g" {} \;
 在同一页面控制台运行下面的命令，如需中断，执行 `window.stopDownload = true`。
 
 ```javascript
-// 在浏览器中设置保存数据的位置
 // 根据需要修改 YEAR 变量
 // 运行 download.js
 ```

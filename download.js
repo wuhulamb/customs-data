@@ -37,6 +37,8 @@ window.stopDownload = false;
 
   // selectTableState 配置
   const SELECT_TABLE_STATE = {
+    2015: 2,
+    2016: 2,
     2017: 2,
     2018: 2,
     2019: 2,
@@ -53,7 +55,7 @@ window.stopDownload = false;
     return new URLSearchParams({
       pageSize: 10, // do not modify, it does not affect the actual page size but is required by the server
       iEType: iEType,
-      currencyType: "rmb",
+      currencyType: "usd",
       year: year,
       startMonth: 1,
       endMonth: 12,

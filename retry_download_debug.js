@@ -34,6 +34,8 @@ window.stopDownload = false;
   }
 
   const SELECT_TABLE_STATE = {
+    2015: 2,
+    2016: 2,
     2017: 2,
     2018: 2,
     2019: 2,
@@ -49,7 +51,7 @@ window.stopDownload = false;
     return new URLSearchParams({
       pageSize: 10,
       iEType: iEType,
-      currencyType: "rmb",
+      currencyType: "usd",
       year: year,
       startMonth: 1,
       endMonth: 12,
@@ -84,7 +86,7 @@ window.stopDownload = false;
         pageSize: 10,
         pageNum: 1,
         iEType: iEType,
-        currencyType: "rmb",
+        currencyType: "usd",
         year: year,
         startMonth: 1,
         endMonth: 12,

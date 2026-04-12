@@ -13,7 +13,7 @@ EXPECTED_HEADERS = [
     "注册地编码", "注册地名称",
     "第一数量", "第一计量单位",
     "第二数量", "第二计量单位",
-    "人民币"
+    "美元"
 ]
 
 def check_csv_file(filepath):

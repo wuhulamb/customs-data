@@ -18,6 +18,8 @@ window.stopSearch = false;
   const TRADE_PORTS = ['11','12','13','14','15','21','22','23','31','32','33','34','35','36','37','41','42','43','44','45','46','50','51','52','53','54','61','62','63','64','65'];
 
   const SELECT_TABLE_STATE = {
+    2015: 2,
+    2016: 2,
     2017: 2,
     2018: 2,
     2019: 2,
@@ -42,7 +44,7 @@ window.stopSearch = false;
       pageSize: 10,
       pageNum: 1,
       iEType: iEType,
-      currencyType: "rmb",
+      currencyType: "usd",
       year: year,
       startMonth: 1,
       endMonth: 12,

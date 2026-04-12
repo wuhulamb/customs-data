@@ -15,7 +15,7 @@
         body: new URLSearchParams({
           pageSize: 10,
           iEType: 1,  // 1: 进口，0: 出口
-          currencyType: "rmb",
+          currencyType: "usd",
           year: year,
           startMonth: 1,
           endMonth: 12,

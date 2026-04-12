@@ -5,6 +5,8 @@
 
   // selectTableState 配置
   const SELECT_TABLE_STATE = {
+    2015: 2,
+    2016: 2,
     2017: 2,
     2018: 2,
     2019: 2,
@@ -29,7 +31,7 @@
         pageSize: 10,
         pageNum: 1,
         iEType: iEType,
-        currencyType: "rmb",
+        currencyType: "usd",
         year: year,
         startMonth: 1,
         endMonth: 12,
