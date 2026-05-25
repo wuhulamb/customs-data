@@ -35,7 +35,15 @@
 
 ## 使用流程
 
-### 0. 设置货币类型（默认为美元）
+### 0. 开始之前
+
+本项目代码在**Chromium浏览器**上可以正常运行，按F12打开浏览器开发者工具，**关闭debugger**，**运行js代码之前需要先查询一次**
+
+![paused-in-debugger.png](assets/paused-in-debugger.png)
+
+![query-once-before-starting.png](assets/query-once-before-starting.png)
+
+### 1. 设置货币类型（默认为美元）
 
 如需设为人民币，替换所有js文件中的 usd 为 rmb:
 
@@ -45,7 +53,7 @@ find . -type f -name "*.js" -exec sed -i "s/usd/rmb/g" {} \;
 
 修改 `merge_csv.py` 和 `check_csv.py` 中的 EXPECTED\_HEADERS 为 [..., "人民币"]
 
-### 1. 确定selectTableState参数
+### 2. 确定selectTableState参数
 
 在海关统计网页浏览器控制台运行：
 
@@ -54,9 +62,13 @@ find . -type f -name "*.js" -exec sed -i "s/usd/rmb/g" {} \;
 // 运行 selectTableStates.js
 ```
 
+![selectTableStates_js1.png](assets/selectTableStates_js1.png)
+
+![selectTableStates_js2.png](assets/selectTableStates_js2.png)
+
 更新 `search.js` `search_and_save.js` `download.js` `retry_download.js` `retry_download_debug.js` 中的 SELECT\_TABLE\_STATE
 
-### 2. 查询数据量
+### 3. 查询数据量
 
 在海关统计网页浏览器控制台运行：
 
@@ -68,7 +80,7 @@ find . -type f -name "*.js" -exec sed -i "s/usd/rmb/g" {} \;
 
 会下载 `customs_data_status_full.json`，包含所有任务的预期数据量。
 
-### 3. 下载数据
+### 4. 下载数据
 
 在同一页面控制台运行下面的命令，如需中断，执行 `window.stopDownload = true`。
 
@@ -83,7 +95,7 @@ find . -type f -name "*.js" -exec sed -i "s/usd/rmb/g" {} \;
 python3 auto_retry.py --move
 ```
 
-### 4. 验证完整性
+### 5. 验证完整性
 
 本地运行：
 
@@ -93,7 +105,7 @@ python3 verify_download.py
 
 对比预期与实际下载的行数。
 
-### 5. 处理不完整数据
+### 6. 处理不完整数据
 
 ```bash
 # 生成重爬列表并更新 retry_download.js
@@ -108,7 +120,7 @@ python3 auto_retry.py --check-csv
 
 然后在浏览器中运行更新后的 `retry_download.js`。
 
-### 6. 合并 CSV 文件
+### 7. 合并 CSV 文件
 
 将拆分的 CSV 文件按年份合并：
 
